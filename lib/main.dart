@@ -47,6 +47,11 @@ class _MyAppState extends State<MyApp> {
     if (!mounted) return;
   }
 
+  Future<void> stopListen() async {
+    bool r = await Bglocation.stopListenet();
+    print(r);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -62,7 +67,13 @@ class _MyAppState extends State<MyApp> {
               child: Text('Running on: $_platformVersion\n'),
             ),
             ElevatedButton(
-                onPressed: initPlatformState, child: Text("Listen position"))
+              onPressed: initPlatformState,
+              child: Text("Listen position"),
+            ),
+            ElevatedButton(
+              onPressed: stopListen,
+              child: Text("Stop listent"),
+            ),
           ],
         ),
       ),
