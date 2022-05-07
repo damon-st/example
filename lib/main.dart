@@ -39,8 +39,7 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    Bglocation.getCurrentPosition(Random().nextInt(100).toString() + "H")
-        .listen((event) {
+    Bglocation.getCurrentPosition().listen((event) {
       print(event);
     });
 
