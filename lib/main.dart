@@ -39,9 +39,14 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
+    await Bglocation.onCreate("DASASDAS");
+
     Bglocation.getCurrentPosition().listen((event) {
       print(event);
     });
+
+    await Bglocation.start();
+    await Bglocation.goForeground();
 
     if (!mounted) return;
   }
